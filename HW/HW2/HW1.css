@@ -1,0 +1,11 @@
+li.pink { background-color: #ff66b3 }
+
+li.blue { background-color: #128ed8 }
+
+li.red { background-color: #ee0000 }
+
+ol.upper-roman { list-style-type: upper-roman}
+
+ol.upper-alpha { list-style-type: upper-alpha}
+
+ol.arabic-numerals { list-style-type: decimal}
