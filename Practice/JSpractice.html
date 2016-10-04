@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- JSpractice.html
+<comments>
+-->
+<html lang = "en">
+  <head>
+    <title> JS Practice </title>
+    <meta charset = "utf-8" />
+
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 20%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #ddddd0;
+    }
+    </style>
+
+    <script type="text/javascript">
+
+      function getUserInput(){
+        var userInput = prompt("Enter an integer number N: ");
+        return userInput;
+      }
+
+      function fibSequenceTableRows(n) {
+
+
+          var table = document.getElementById("FibTable");
+
+          var fib = 0;
+          var fibPrev = 1;
+          var nextFib = 0;
+          for(i=0 ; i < n; i++){
+
+              if(i > 0){
+
+                  nextFib = fib + fibPrev;
+                  fibPrev = fib
+                  fib = nextFib
+              }
+
+              rowCount = table.rows.length;
+              row = table.insertRow(rowCount);
+              row.insertCell(0).innerHTML = (i + 1);
+              row.insertCell(1).innerHTML = fib ;
+
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Fibonacci Sequence</h1>
+
+    <table id = "FibTable">
+      <tr>
+        <th>N</th>
+        <th>Fib Number</th>
+      </tr>
+      <br>
+
+      <script type="text/javascript">
+        var n = getUserInput();
+        fibSequenceTableRows(n);
+      </script>
+
+    </table>
+
+  </body>
+</html>
