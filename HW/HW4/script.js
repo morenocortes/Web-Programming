@@ -2,38 +2,72 @@ var applePrice = 0.59;
 var orangePrice = 0.49;
 var bananaPrice = 0.39;
 var salesTax = 0.05;
+var isValidInputs = 1;
 
-function checkIfValidNumber(number, id){
+function isApplesNumberValid(number){
 
 	if(isNaN(number) || number < 0 || number > 99 ){
-		alert("Please Enter a number between 0-99");
-
+		alert("Please Enter a number between 0-99 in Apples input");
+		isValidInputs = 0;
+		return false;
 	}else{
+			isValidInputs = 1;
 		return true;
 	}
+}
 
+function isOrangesNumberValid(number){
+
+	if(isNaN(number) || number < 0 || number > 99 ){
+		alert("Please Enter a number between 0-99 in Oranges Input");
+		isValidInputs = 0;
+		return false;
+	}else{
+		isValidInputs = 1;
+		return true;
+	}
+}
+function isBananasNumberValid(number){
+	if(isNaN(number) || number < 0 || number > 99 ){
+		alert("Please Enter a number between 0-99 in Bananas Input");
+		isValidInputs = 0;
+		return false;
+	}else{
+		isValidInputs = 1;
+		return true;
+	}
 }
 
 function computeCost(){
 
-// get the value form input boxes
-var appleAmt = document.getElementById("apples").value;
-var orangeAmt = document.getElementById("oranges").value;
-var bananaAmt = document.getElementById("bananas").value;
+	// get the value form input boxes
+	var appleAmt = document.getElementById("apples").value;
+	var orangeAmt = document.getElementById("oranges").value;
+	var bananaAmt = document.getElementById("bananas").value;
 
-// calculate subtotal
-var subTotalCost = ((applePrice * appleAmt) + (orangePrice * orangeAmt) + (bananaPrice * bananaAmt));
 
-// calculate total cost including tax
-var totalCost = subTotalCost * (1 + salesTax);
+	if(isValidInputs)
+	{
+		// calculate subtotal
+		var subTotalCost = ((applePrice * appleAmt) + (orangePrice * orangeAmt) + (bananaPrice * bananaAmt));
 
-// round cost to two decimal point
-var roundedPrice = Math.round(totalCost * 100)/100;
+		// calculate total cost including tax
+		var totalCost = subTotalCost * (1 + salesTax);
 
-document.getElementById("cost").value = roundedPrice;
+		// round cost to two decimal point
+		var roundedPrice = totalCost.toFixed(2);
 
-alert("Total Price is: " + roundedPrice);
+		document.getElementById("cost").value = roundedPrice;
 
-return false;
+		alert("Total Price is: " + roundedPrice);
+	}
+	else {
+		alert("Please Enter Valid Inputs. Values in Range 0-99 are only accepted");
+		//clear the form
+		var appleAmt = document.getElementById("apples").value('');
+		var orangeAmt = document.getElementById("oranges").value('');
+		var bananaAmt = document.getElementById("bananas").value('');
+	}
+	return false;
 
 }

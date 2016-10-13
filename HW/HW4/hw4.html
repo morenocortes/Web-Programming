@@ -19,24 +19,24 @@
 		<tr>
 			<th>Apple</th>
 			<td>$0.59</td>
-			<td><input type="text" id="apples" size="3"  onfocusout="checkIfValidNumber(this.value, id)" /></td>
+			<td><input type="text" id="apples" size="3"  onfocusout="isApplesNumberValid(this.value)" /></td>
 		</tr>
 		<tr>
 			<th>Orange</th>
 			<td>$0.49</td>
-			<td><input type="text" id="oranges" size="3" onfocusout="checkIfValidNumber(this.value)"  /></td>
+			<td><input type="text" id="oranges" size="3" onfocusout="isOrangesNumberValid(this.value)"  /></td>
 		</tr>
 		<tr>
 			<th>Banana</th>
 			<td>$0.39</td>
-			<td><input type="text" id="bananas" size="3" onfocusout="checkIfValidNumber(this.value)"/></td>
+			<td><input type="text" id="bananas" size="3" onfocusout="isBananasNumberValid(this.value)"/></td>
 		</tr>
 		<tr>
 			<th>Total Cost</th>
 			<td colspan="2"><input type="text" id="cost" size="15" onfocus="this.blur();"/></td>
 		</tr>
 	</table>
-	<input type="submit" value="Total Cost" onClick="return computeCost();" />
+	<input type="submit" value="Total Cost" onclick="return computeCost();" />
   </form>
 
 </body>
